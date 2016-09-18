@@ -1,4 +1,4 @@
-# generator-qmui [![NPM version][npm-image]][npm-url]
+# generator-qmui
 > A Yeoman generator for QWUI
 
 [![QWUI Team Name](https://img.shields.io/badge/Team-QMUI-brightgreen.svg?style=flat)](https://github.com/wenyuking)
