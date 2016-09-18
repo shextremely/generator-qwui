@@ -1,4 +1,4 @@
-# generator-qmui
+# generator-qwui
 > A Yeoman generator for QWUI
 
 [![QWUI Team Name](https://img.shields.io/badge/Team-QWUI-orange.svg?style=flat)](https://github.com/wenyuking)
