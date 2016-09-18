@@ -1,7 +1,7 @@
 # generator-qmui
 > A Yeoman generator for QWUI
 
-[![QWUI Team Name](https://img.shields.io/badge/Team-QMUI-brightgreen.svg?style=flat)](https://github.com/wenyuking)
+[![QWUI Team Name](https://img.shields.io/badge/Team-QWUI-orange.svg?style=flat)](https://github.com/wenyuking)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.")
 
 ## Installation
