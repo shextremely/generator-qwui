@@ -6,11 +6,12 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-qmui using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-qwui using [npm](https://www.npmjs.com/) (we assume you have
+pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-qmui
+npm install -g generator-qwui
 ```
 
 Then generate your new project on your target directory:
