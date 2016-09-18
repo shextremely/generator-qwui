@@ -22,4 +22,4 @@ yo qwui
 
 ## License
 
-MIT.
+MIT
