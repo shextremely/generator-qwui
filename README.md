@@ -1,8 +1,7 @@
 # generator-qmui [![NPM version][npm-image]][npm-url]
 > A Yeoman generator for QWUI
 
-[![Dependency Status][daviddm-image]][daviddm-url]
-[![QMUI Team Name](https://img.shields.io/badge/Team-QMUI-brightgreen.svg?style=flat)]()
+[![QWUI Team Name](https://img.shields.io/badge/Team-QMUI-brightgreen.svg?style=flat)](https://github.com/wenyuking)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.")
 
 ## Installation
