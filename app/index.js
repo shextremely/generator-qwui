@@ -66,7 +66,7 @@ module.exports = generators.Base.extend({
     },
     install: function() {
         var done = this.async();
-        this.spawnCommand('npm', ['install']) //安装项目依赖
+        this.spawnCommand('cnpm', ['install']) //安装项目依赖
             .on('exit', function(code) {
                 if (code) {
                     done(new Error('code:' + code));
