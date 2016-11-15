@@ -52,7 +52,7 @@ module.exports = generators.Base.extend({
             this.template('package.json', 'package.json');
             this.template('gulpfile.js', 'gulpfile.js');
 
-            this.spawnCommand('git', ['clone', 'http://117.78.50.205/front-end/qwui.git'])
+            this.spawnCommand('git', ['clone', 'https://github.com/wenyuking/qwui.git'])
                 .on('exit', function(code) {
                     if (code) {
                         done(new Error('code:' + code));
