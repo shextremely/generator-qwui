@@ -20,6 +20,16 @@ Then generate your new project on your target directory:
 yo qwui
 ```
 
+## About Sprites
+
+You can use the `gulp.spritesmith` to generate spritesheet,We added a can generate multiple pictures of parameters.
+
+You have to put your image files in `./qwui/images/sprites/`,A sprite images corresponds to a folder
+
+```bash
+gulp sprites --name <name>
+```
+
 ## License
 
 MIT
