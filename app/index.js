@@ -51,7 +51,6 @@ module.exports = generators.Base.extend({
             var done = this.async();
             this.template('package.json', 'package.json');
             this.template('gulpfile.js', 'gulpfile.js');
-            this.template('config.rb', 'config.rb');
 
             this.spawnCommand('git', ['clone', 'http://117.78.50.205/front-end/qwui.git'])
                 .on('exit', function(code) {
