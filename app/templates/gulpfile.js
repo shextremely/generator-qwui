@@ -1,17 +1,21 @@
-var gulp = require('gulp');
-
-var minifycss = require('gulp-minify-css');
-var fileinclude = require('gulp-file-include');
-var livereload = require('gulp-livereload');
-var compass = require('gulp-compass');
-var clean = require('gulp-clean');
-var replace = require('gulp-replace')
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-//var browserSync = require('browser-sync').create();
-
+var gulp = require('gulp'),
+    minifycss = require('gulp-minify-css'),
+    fileinclude = require('gulp-file-include'),
+    sass = require('gulp-sass'),
+    clean = require('gulp-clean'),
+    spritesmith = require('gulp.spritesmith'),
+    replace = require('gulp-replace'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    autoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync').create();
 gulp.task('browser-sync', function() {
-    browserSync.init({
+    var files = [
+        'qwui/html/**/*.html',
+        'qwui/js/*/*.js'
+    ];
+
+    browserSync.init(files, {
         server: {
             baseDir: "./dist"
         },
@@ -19,43 +23,32 @@ gulp.task('browser-sync', function() {
         notify: false, //刷新是否提示
         open: true //是否自动打开页面
     });
-
-    gulp.watch([
-        'qwui/html/*.html',
-        'qwui/html/*/*.html',
-        'qwui/sass/*/*.scss',
-        'qwui/sass/*/*/*.scss',
-        'qwui/js/*/*.js',
-        'qwui/js/*/*/*.js'
-        ])
-    .on("change", browserSync.reload);
 });
 
 
 gulp.task('style', function() {
     gulp.src('./qwui/sass/*.scss')
-        .pipe(compass({
-            config_file: './config.rb',
-            css: './dist/css',
-            sass: 'qwui/sass'
-        }))
-        .on('error', function(error) {
-            // Would like to catch the error here
-            console.log(error);
-        })
-
-    .pipe(gulp.dest('./dist/css'))
-        .pipe(livereload());
+        .pipe(sass().on('error', sass.logError))
+        // .pipe(cssmin())
+        .pipe(gulp.dest('./dist/css'))
+        .pipe(browserSync.stream()); //browserSync:只监听sass编译之后的css
 });
 
+gulp.task('prefixer', function() {
+    gulp.src('dist/css/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'last 2 Explorer versions', '> 5%']
+        }))
+        .pipe(gulp.dest('./dist/css'))
+})
+
 gulp.task('html', function() {
-    gulp.src(['qwui/html/*.html', 'qwui/html/*/*.html', '!src/html/include/*.html'])
+    gulp.src(['qwui/html/*.html', 'qwui/html/*/*.html', '!qwui/html/include/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
         .pipe(gulp.dest('./dist/html'))
-        .pipe(livereload());
 });
 
 gulp.task('js', function() {
@@ -66,18 +59,33 @@ gulp.task('js', function() {
         })
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js'))
-        .pipe(livereload());
 });
 
+var argv = require('minimist')(process.argv.slice(2));
+
+var spritesMithConfig = {
+    imgName: argv.name + '.png',
+    cssName: '_' + argv.name + '.scss',
+    cssFormat: 'scss',
+    algorithm: 'binary-tree',
+    imgPath: '../images/sprites/' + argv.name + '.png',
+    padding: 8
+}
+
+gulp.task('sprite', function() {
+    var spriteData = gulp.src('./qwui/images/sprites/' + argv.name + '/*.png').pipe(spritesmith(spritesMithConfig));
+    spriteData.img.pipe(gulp.dest("./dist/images/sprites"));
+    spriteData.css.pipe(gulp.dest("./qwui/sass/module/icon"));
+})
 
 // 执行任务
 gulp.task('qwui', function() {
 
-    //gulp.run('browser-sync');
-
-    gulp.watch(['qwui/js/*/*.js', 'qwui/js/*/*/*.js'], ['js']);
+    gulp.run('browser-sync');
     gulp.watch(['qwui/sass/*/*.scss', 'qwui/sass/*/*/*.scss'], ['style']);
-    gulp.watch(['qwui/html/*.html', 'qwui/html/*/*.html'], ['html']);
+    gulp.watch(['qwui/html/**/*.html', ], ['html'])
+    gulp.watch(['qwui/js/*/*.js', 'qwui/js/*/*/*.js'], ['js']);
+    gulp.watch(['dist/css/*.css'], ['prefixer']);
 });
 
 gulp.task('prod', function() {
