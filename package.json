@@ -1,6 +1,6 @@
 {
   "name": "generator-qwui",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "quanwang fronted-team builder",
   "files": [
     "app"
@@ -13,7 +13,5 @@
     "chalk": "^1.0.0",
     "yosay": "^1.0.2"
   },
-  "repository": "https://github.com/wenyuking/generator-qwui.git",
-  "_from": "generator-qwui@0.1.7",
-  "_resolved": "http://registry.npm.taobao.org/generator-qwui/download/generator-qwui-0.1.7.tgz"
+  "repository": "https://github.com/wenyuking/generator-qwui.git"
 }
