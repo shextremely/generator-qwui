@@ -1,9 +1,9 @@
 {
   "name": "generator-qwui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "quanwang fronted-team builder",
   "files": [
-    "app"
+    "generators"
   ],
   "keywords": [
     "yeoman-generator"
