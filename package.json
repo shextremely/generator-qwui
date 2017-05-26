@@ -1,13 +1,19 @@
 {
-    "name": "generator-qwui",
-    "version": "0.1.7",
-    "description": "quanwang fronted-team builder",
-    "files": ["app"],
-    "keywords": ["yeoman-generator"],
-    "dependencies": {
-        "yeoman-generator": "^0.17.3",
-        "chalk": "^1.0.0",
-        "yosay": "^1.0.2"
-    },
-    "repository":"https://github.com/wenyuking/generator-qwui.git"
+  "name": "generator-qwui",
+  "version": "0.1.7",
+  "description": "quanwang fronted-team builder",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "repository": "https://github.com/wenyuking/generator-qwui.git",
+  "_from": "generator-qwui@0.1.7",
+  "_resolved": "http://registry.npm.taobao.org/generator-qwui/download/generator-qwui-0.1.7.tgz"
 }
