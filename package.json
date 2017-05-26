@@ -1,6 +1,6 @@
 {
   "name": "generator-qwui",
-  "version": "0.1.7",
+  "version": "1.0",
   "description": "quanwang fronted-team builder",
   "files": [
     "app"
