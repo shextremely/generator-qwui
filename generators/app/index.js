@@ -28,30 +28,30 @@ module.exports = class extends Generator{
 	    this.log(yosay('欢迎使用全网数商前端 ' + chalk.red('QWUI') + ' 项目生成器!'));
 	}
 
-	// prompting(){
-	// 	return this.prompt([{
- //                type: 'input',
- //                name: 'name',
- //                message: '请输入项目名称:',
- //                default: this.name
- //            }, {
- //                type: 'input',
- //                name: 'description',
- //                message: '请输入项目描述:',
- //                default: this.description
- //            }, {
- //                type: 'input',
- //                name: 'author',
- //                message: '请输入开发人员:',
- //                default: this.author
- //            }]).then((answers) => {
+	prompting(){
+		return this.prompt([{
+                type: 'input',
+                name: 'name',
+                message: '请输入项目名称:',
+                default: this.name
+            }, {
+                type: 'input',
+                name: 'description',
+                message: '请输入项目描述:',
+                default: this.description
+            }, {
+                type: 'input',
+                name: 'author',
+                message: '请输入开发人员:',
+                default: this.author
+            }]).then((answers) => {
 
-	//       	  this.name = answers.name;
- //              this.pkgName = answers.name;
- //              this.author = answers.author;
- //              this.description = answers.description;
-	//     });
-	// }
+	      	  this.name = answers.name;
+              this.pkgName = answers.name;
+              this.author = answers.author;
+              this.description = answers.description;
+	    });
+	}
 
 
 	writing(){
