@@ -81,11 +81,17 @@ module.exports = class extends Generator{
 	      this.destinationPath("gulpfile.js")
 	    );
 
+	    this.fs.copy(
+	      this.templatePath(".gitignore"),
+	      this.destinationPath(".gitignore")
+	    );
+
 	}
 
 	install() {
 	   this.installDependencies({
 	      npm: true,
+	      bower:false,
 	      callback: function() {
 	        this.spawnCommand('gulp', ['qwui']);
 	      }.bind(this)
