@@ -84,7 +84,6 @@ gulp.task('qwui', function() {
     gulp.watch(['qwui/sass/*/*.scss', 'qwui/sass/*/*/*.scss'], ['style']);
     gulp.watch(['qwui/html/**/*.html', ], ['html'])
     gulp.watch(['qwui/js/*/*.js', 'qwui/js/*/*/*.js'], ['js']);
-    gulp.watch(['dist/css/*.css'], ['prefixer']);
 });
 
 gulp.task('prod', function() {
@@ -92,4 +91,5 @@ gulp.task('prod', function() {
     gulp.watch(['qwui/js/*.js'], ['js']);
     gulp.watch(['qwui/sass/*/*.scss', 'qwui/sass/*/*/*.scss'], ['style']);
     gulp.watch(['qwui/html/*.html', 'qwui/html/*/*.html'], ['html']);
+    gulp.watch(['dist/css/*.css'], ['prefixer']);
 });
