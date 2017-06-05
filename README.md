@@ -17,7 +17,7 @@ npm install -g generator-qwui
 Then generate your new project on your target directory:
 
 ```bash
-yo qwui
+yo qwui --force
 ```
 
 ## About Sprites

@@ -75,16 +75,15 @@ module.exports = class extends Generator{
 
 		if(this.type == '移动端'){
 			gutil.log(gutil.colors.green('QWUI Install: ') + '安装移动端初始项目');
-			this.spawnCommand('git', ['clone', 'git@github.com:wenyuking/qwui_mobile.git'])
-		    	.on('exit',function(){
-		    		_self.spawnCommand('rm', ['-rf','qwui_mobile/.git']);
-		    		_self.copyFile();
-		    	})
+			this.spawnCommandSync('git', ['clone', 'git@github.com:wenyuking/qwui_mobile.git']);
+
+		    _self.copyFile();
+		    _self.doDeleteFile('qwui_mobile');
 		}else if(this.type == 'PC端'){
 			gutil.log(gutil.colors.green('QWUI Install: ') + '安装PC端初始项目');
-			this.spawnCommand('git', ['clone', 'https://github.com/wenyuking/qwui.git'])
+			this.spawnCommandSync('git', ['clone', 'https://github.com/wenyuking/qwui.git'])
 		    	.on('exit',function(){
-		    		_self.spawnCommand('rm', ['-rf','qwui/.git'])
+		    		_self.doDeleteFile('qwui');
 		    		_self.copyFile();
 		    	})
 		}
@@ -113,6 +112,13 @@ module.exports = class extends Generator{
 	      this.templatePath("gulpfile.js"),
 	      this.destinationPath("gulpfile.js")
 	    );
+	}
+	
+	
+	doDeleteFile(folderName){
+		this.fs.delete(
+		      this.destinationPath(folderName+'/.git/')
+		    );
 	}
 
 	install() {
