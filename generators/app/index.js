@@ -81,7 +81,9 @@ module.exports = class extends Generator{
 		    _self.doDeleteFile('qwui_mobile');
 		}else if(this.type == 'PC端'){
 			gutil.log(gutil.colors.green('QWUI Install: ') + '安装PC端初始项目');
-			this.spawnCommandSync('git', ['clone', 'https://github.com/wenyuking/qwui.git'])
+			this.spawnCommandSync('git', ['clone', 'https://github.com/wenyuking/qwui.git']);
+			_self.copyFile();
+		    _self.doDeleteFile('qwui_mobile');
 		}
 
 	}
