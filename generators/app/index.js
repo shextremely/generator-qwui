@@ -82,10 +82,6 @@ module.exports = class extends Generator{
 		}else if(this.type == 'PC端'){
 			gutil.log(gutil.colors.green('QWUI Install: ') + '安装PC端初始项目');
 			this.spawnCommandSync('git', ['clone', 'https://github.com/wenyuking/qwui.git'])
-		    	.on('exit',function(){
-		    		_self.doDeleteFile('qwui');
-		    		_self.copyFile();
-		    	})
 		}
 
 	}
@@ -108,10 +104,19 @@ module.exports = class extends Generator{
 	      data
 	    );
 
-	    this.fs.copy(
-	      this.templatePath("gulpfile.js"),
-	      this.destinationPath("gulpfile.js")
-	    );
+	    if(this.type == '移动端'){
+			this.fs.copy(
+		      this.templatePath("gulpfile_mobile.js"),
+		      this.destinationPath("gulpfile.js")
+		    );
+	    }else if(this.type == 'PC端'){
+	    	this.fs.copy(
+		      this.templatePath("gulpfile.js"),
+		      this.destinationPath("gulpfile.js")
+		    );
+	    }
+
+	    
 	}
 	
 	
